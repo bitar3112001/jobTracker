@@ -1,0 +1,35 @@
+<app-nav></app-nav>
+
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around; align-items: center;">
+  <div style=" box-shadow: 0px 1px 13px rgba(0, 0, 0, 0.05); width: 400px; border-radius: 16px; margin-top: 5%;">
+  <form class="form1 "  [formGroup]="myForm"  (ngSubmit)="onSubmit()">
+    <h3>Adding skills</h3>
+    <div style="margin-top: 24px; display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; width: 100%;" class="div2" >
+    <label for="" >Skill name</label>
+    <div>
+    <input type="text" class="input1" required formControlName="name" >
+    <div *ngIf="myForm.get('name').invalid && checker"  class="error-message">
+      enter your skills.
+    </div>
+  </div>
+    </div>
+
+    <div class="div1" style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; width: 100%;">
+    <label for="">Level</label><br>
+    <div>
+    <input type="number" class="input1" formControlName="level"  >
+    <div *ngIf="myForm.get('level').hasError('max')"  class="error-message">
+      Maximum allowed value is 100.
+    </div>
+    </div>
+  </div>
+    <button class="bt1 btn btn-primary">Add</button>
+    </form>
+  </div>
+  <div>
+  <h4>Your Skills</h4>
+  <div style="width: 400px; height: 50px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-around; box-shadow: 0px 1px 13px rgba(0, 0, 0, 0.05);" *ngFor="let i of skills">
+    <p>{{i.name}}</p>
+    <p>{{i.level}} %</p>
+  </div></div>
+</div>
