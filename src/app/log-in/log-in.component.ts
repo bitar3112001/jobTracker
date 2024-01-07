@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from '../data.service';
 
@@ -7,7 +7,7 @@ import { DataService } from '../data.service';
   templateUrl: './log-in.component.html',
   styleUrls: ['./log-in.component.css']
 })
-export class LogInComponent {
+export class LogInComponent implements OnInit{
   private users:any;
   user = {
    email: '',
@@ -39,6 +39,10 @@ constructor(private router:Router, private data: DataService){}
 
 // );
 // }
+ngOnInit():void{
+  localStorage.removeItem('info')
+
+}
 
 log(){
   this.data.getUser(this.user).subscribe(

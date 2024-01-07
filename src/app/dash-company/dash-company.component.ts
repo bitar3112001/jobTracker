@@ -1,5 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dash-company',
@@ -9,9 +10,20 @@ import { DataService } from '../data.service';
 export class DashCompanyComponent implements OnInit {
 jobs:any;
 information:any
-constructor(private data:DataService){}
+constructor(private data:DataService, private route: Router){}
 
 ngOnInit(): void {
+if(localStorage.getItem('info')){
+
+  this.route.navigate(["/logIn/"]).then(() => {
+    window.scrollTo(0, 0)
+  });
+}else{
+  this.route.navigate(["/logIn/"]).then(() => {
+    window.scrollTo(0, 0)
+  });
+}
+
   const info= localStorage.getItem('infoCompany')
 if(info){
 this.information = JSON.parse(info)
