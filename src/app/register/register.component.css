@@ -20,6 +20,10 @@
   margin-right: 24px;
   border-radius: 8px;
 }
+.main{
+width: 345px;
+}
+
 .changeButton{
   border: 1px solid #4e60ff;
   background-color: white;

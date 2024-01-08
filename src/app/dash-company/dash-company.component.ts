@@ -13,9 +13,9 @@ information:any
 constructor(private data:DataService, private route: Router){}
 
 ngOnInit(): void {
-if(localStorage.getItem('info')){
+if(localStorage.getItem('infoCompany')){
 
-  this.route.navigate(["/logIn/"]).then(() => {
+  this.route.navigate(["/dashCompany/"]).then(() => {
     window.scrollTo(0, 0)
   });
 }else{

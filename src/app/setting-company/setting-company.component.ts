@@ -33,7 +33,7 @@ constructor(private data: DataService){}
   }
 }
 logOut(){
-  localStorage.removeItem('info')
+  localStorage.removeItem('infoCompany')
 }
 updatePass(password:string){
   this.data.updateCompany(parseInt(this.users.id),password).subscribe()
