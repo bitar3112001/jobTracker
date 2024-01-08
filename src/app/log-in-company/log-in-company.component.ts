@@ -43,7 +43,7 @@ export class LogInCompanyComponent {
   this.error="",
   this.message="";
       if (response.length==1){
-        localStorage.setItem("info",JSON.stringify(response[0]));
+        localStorage.setItem("infoCompany",JSON.stringify(response[0]));
 
         this.router.navigate(["/dashCompany/"]).then(() => {
           window.scrollTo(0, 0)

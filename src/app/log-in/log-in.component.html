@@ -8,12 +8,12 @@
         <div class="EP">
           <label id="l1" for="">email</label>
           <br>
-          <input class="inputLog" type="text" name="email" [(ngModel)]="user.email" required>
+          <input class="inputLog" type="text" name="email" [(ngModel)]="user.email" required email>
         </div>
         <div class="EP">
           <label id="l1"  for="">password</label>
           <br>
-          <input class="inputLog" type="password" name="password" [(ngModel)]="user.password">
+          <input class="inputLog" type="password" name="password" [(ngModel)]="user.password" required>
         </div>
         <div *ngIf="check" ><p class="error-message">Incorrect email or password</p></div>
       <button type="submit" (click)="log()">Login</button>
