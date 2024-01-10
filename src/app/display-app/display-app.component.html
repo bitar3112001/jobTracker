@@ -25,13 +25,13 @@
         <td>{{i.phone}}</td>
         <td>{{i.email}}</td>
         <td>{{i.Description}}</td>
-        <td><button data-bs-toggle="modal"  [attr.data-bs-target]="'#myModal' + i.id" (click)="showUser(i.user_id)">View</button>
+        <td><button data-bs-toggle="modal"  [attr.data-bs-target]="'#myModal' + i.id" (click)="showUser(i.user_id,i.email)">View</button>
 
           <div class="modal" [id]="'myModal'+i.id">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h4 class="modal-title">SkillS: </h4>
+                  <h4 class="modal-title">Skills: </h4>
                   <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
@@ -48,7 +48,7 @@
             </div>
           </div>
         </td>
-        <td><button data-bs-toggle="modal"  [attr.data-bs-target]="'#myModalAccept' + i.id" (click)="switchE(i.email)">Accept</button><button data-bs-toggle="modal"  [attr.data-bs-target]="'#myModalDelete' + i.id">Delete</button>
+        <td><button data-bs-toggle="modal"  [attr.data-bs-target]="'#myModalAccept' + i.id" (click)="switchE(i.email)">Accept</button><button data-bs-toggle="modal"  [attr.data-bs-target]="'#myModalDelete' + i.id">Reject</button>
 
           <div class="modal" [id]="'myModalAccept'+i.id">
             <div class="modal-dialog">

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { DataService } from '../data.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-setting-company',
   templateUrl: './setting-company.component.html',
@@ -14,8 +14,10 @@ export class SettingCompanyComponent {
     email:"",
     location:"",
     password:"",  }
-constructor(private data: DataService){}
+constructor(private data: DataService, private route:Router){}
     ngOnInit():void{
+      if(localStorage.getItem('infoCompany')){}else{this.route.navigate(["/logIn/"]).then(() => {window.scrollTo(0, 0)});}
+
       const info= localStorage.getItem("infoCompany")
   console.log(info)
   if(info){

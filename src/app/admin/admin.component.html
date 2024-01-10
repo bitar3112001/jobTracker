@@ -28,7 +28,7 @@
 
 
 <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-  <h1 style="align-self: self-start;">user Account:</h1>
+  <h1 style="align-self: self-start;">User Account:</h1>
 
   <table class="table table-success table-light" style="border-radius: 8px;">
     <thead>
@@ -53,3 +53,34 @@
   </table>
 
   </div>
+
+  <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <h1 style="align-self: self-start;">Jobs :</h1>
+  <table class="table table-success table-primay" style="border-radius: 8px;">
+    <thead>
+      <tr>
+        <th scope="col">#ID</th>
+        <th scope="col">job name</th>
+        <th scope="col">Salary</th>
+        <th scopre="col">Post Date</th>
+        <th scopre="col">Location</th>
+        <th scope="col">Remove</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let i of job">
+        <th scope="row">{{i.job_id}}</th>
+        <td>{{i.title}}</td>
+        <td>{{i.salary}} $</td>
+        <td>{{i.postDate}}</td>
+        <td>{{i.location}}</td>
+
+        <td>
+          <button class="btn btn-primary" style="border: 0px; border-radius: 8px;" (click)="updateStatus(i.job_id)">Accept</button>
+          <button class="btn btn-danger" style="border: 0px; border-radius: 8px;" (click)="delete(i.job_id)">Reject</button>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
