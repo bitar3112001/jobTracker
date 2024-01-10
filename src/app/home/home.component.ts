@@ -10,12 +10,6 @@ export class HomeComponent implements OnInit {
 constructor(private route:Router){}
 
   ngOnInit():void{
-    if (localStorage.getItem('info')){
-
-    }else{
-      this.route.navigate(["/logIn/"]).then(() => {
-        window.scrollTo(0, 0)
-      });
-    }
+    if (localStorage.getItem('info')){}else{this.route.navigate(["/logIn/"]).then(() => {window.scrollTo(0, 0)});}
   }
 }

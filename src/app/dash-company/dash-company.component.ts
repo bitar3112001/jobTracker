@@ -13,16 +13,7 @@ information:any
 constructor(private data:DataService, private route: Router){}
 
 ngOnInit(): void {
-if(localStorage.getItem('infoCompany')){
-
-  this.route.navigate(["/dashCompany/"]).then(() => {
-    window.scrollTo(0, 0)
-  });
-}else{
-  this.route.navigate(["/logIn/"]).then(() => {
-    window.scrollTo(0, 0)
-  });
-}
+if(localStorage.getItem('infoCompany')){this.route.navigate(["/dashCompany/"]).then(() => {window.scrollTo(0, 0)});}else{this.route.navigate(["/logIn/"]).then(() => {window.scrollTo(0, 0)});}
 
   const info= localStorage.getItem('infoCompany')
 if(info){

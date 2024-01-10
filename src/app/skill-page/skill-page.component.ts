@@ -2,6 +2,7 @@ import { Component,OnInit } from '@angular/core';
 import { FormBuilder, Validators,FormGroup } from '@angular/forms';
 import { DataService } from '../data.service';
 import { response } from 'express';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-skill-page',
@@ -19,11 +20,12 @@ users={
   password:"",  }
   skills:any=[]
   checker=false
-constructor(private formBuilder:FormBuilder, private data: DataService){
+constructor(private formBuilder:FormBuilder, private data: DataService, private route:Router){
 
 }
 
 ngOnInit(): void {
+  if (localStorage.getItem('info')){}else{this.route.navigate(["/logIn/"]).then(() => {window.scrollTo(0, 0)});}
   const info = localStorage.getItem('info');
   console.log(info)
   if(info){
@@ -56,4 +58,10 @@ onSubmit(){
 this.data.addSkill(this.myForm.value).subscribe();
 window.location.reload()}
 }
+
+deleteSkill(skill_id:number){
+  this.data.deleteSkill(skill_id).subscribe();
+  window.location.reload();
+}
+
 }

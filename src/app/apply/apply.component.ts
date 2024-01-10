@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class ApplyComponent {
 CompanyId:number=1;
+jobName:string=''
 myForm:any;
 information:any;
 users={
@@ -22,7 +23,16 @@ users={
 constructor(private formBuilder: FormBuilder,private data: DataService,private router:Router){}
 
   ngOnInit(): void {
+    if(localStorage.getItem('info')){}else{this.router.navigate(["/logIn/"]).then(() => {window.scrollTo(0, 0)});}
+
     const id= localStorage.getItem('JobItem');
+    const n = localStorage.getItem('JobName');
+
+    if(n){
+      this.jobName= JSON.parse(n)
+      console.log(this.jobName," ggg")
+    }
+
     console.log("the id: ",id)
     if(id){
       this.CompanyId= JSON.parse(id)
@@ -52,7 +62,7 @@ this.myForm= this.formBuilder.group({
   status:["false"],
   appliedDate:[this.now.toLocaleDateString()],
   userName: [this.users.name,Validators.required],
-  jobName: ['',Validators.required],
+  jobName: [this.jobName,Validators.required],
   phone: [this.users.phone,Validators.required],
   email:[this.users.email,Validators.required],
   Description:['',Validators.required],

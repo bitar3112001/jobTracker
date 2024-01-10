@@ -12,7 +12,7 @@
 
 
 <div style="display: flex; justify-content: space-around; flex-wrap: wrap; margin-top: 5%;">
-<div *ngFor="let i of jobs1" style="margin-top: 10px;">
+<div *ngFor="let i of jobAccept" style="margin-top: 15px;">
   <div class="card" style="width: 300px; display: flex; align-items: center;">
 
     <h3 style="margin-top: 2%;">{{i.title}}</h3>
@@ -48,7 +48,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="moveToWithId(i.company_id)">Apply</button>
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="moveToWithId(i.company_id,i.title)">Apply</button>
             </div>
           </div>
         </div>
@@ -60,10 +60,9 @@
 
 
 
-<div *ngFor="let i of jobCopy" style="margin-top: 10px;">
+<!-- <div *ngFor="let i of jobCopy" style="margin-top: 10px;">
   <div class="card" style="width: 300px; display: flex; align-items: center;">
     <h2 style="margin-top: 2%;">{{i.title}}</h2>
-    <!-- <img class="card-img-top" src="../../assets/images/job-svgrepo-com.svg" alt="Card image" style="width:200px; height: 200px;"> -->
     <div class="card-body">
       <h4 class="card-title">Location: {{i.location}}</h4>
       <p class="card-text">Salary: {{i.salary}}</p>
@@ -102,4 +101,4 @@
 
     </div>
   </div>
-</div>
+</div> -->

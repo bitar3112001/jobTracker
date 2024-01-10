@@ -18,9 +18,10 @@ export class ShowMyApplicationComponent implements OnInit {
     password:"",  }
 
 application:any=[];
-constructor(private data: DataService){}
+constructor(private data: DataService,private route:Router){}
 
 ngOnInit(): void {
+  if (localStorage.getItem('info')){}else{this.route.navigate(["/logIn/"]).then(() => {window.scrollTo(0, 0)});}
   const info = localStorage.getItem('info');
   console.log(info)
   if(info){

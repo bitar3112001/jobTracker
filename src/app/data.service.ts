@@ -85,8 +85,17 @@ deleteApp(application_id:number){
 console.log(url)
   return this.http.delete(url)
 }
+
+deleteSkill(skillId:number){
+  const url= `http://localhost:3000/skill/deleteSkill/${skillId}`
+  console.log(url)
+  return this.http.delete(url)
+}
+
+
 getJobs(){
-  const url= `http://localhost:3000/jobs/getJobs`
+  const url= `http://localhost:3000/jobs/getJobs`;
+
   return this.http.get(url)
 }
 getJobCategory(category_id:number){
@@ -151,4 +160,12 @@ console.log(url)
   return this.http.delete(url)
 }
 
+updateStatusJob(job_id:number){
+  const url= `http://localhost:3000/jobs/updateStatus`
+  const body= {job_id}
+  return this.http.put(url,body)
 }
+
+}
+
+

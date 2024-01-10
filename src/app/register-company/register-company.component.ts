@@ -25,6 +25,7 @@ export class RegisterCompanyComponent {
     })
 }
 onSubmit(){
+  if(this.myForm.valid){
  this.data.addCompany(this.myForm.value).subscribe();
 console.log(this.myForm.value)
 this.myForm= this.formBuilder.group({
@@ -35,7 +36,8 @@ this.myForm= this.formBuilder.group({
   location:['',Validators.required]
   //user_id
 })
-
+this.router.navigate(["/logInCompany/"]).then(() => {window.scrollTo(0, 0)});
+  }
 // this.router.navigate(["/logInCompany/"]).then(() => {
 //   window.scrollTo(0, 0)
 // });
